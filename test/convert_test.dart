@@ -87,6 +87,12 @@ void main() {
       test('encode', () {
         expect(stringCodec.encoder.convert('foo'), [102, 111, 111, 0]);
       });
+
+      test('encode-decode', () {
+        final msg1 = OSCMessage('/dun/dap', arguments: ['aaaa', 1, 4]);
+        final msg2 = OSCMessage.fromBytes(msg1.toBytes());
+        expect(msg2, msg1);
+      });
     });
   });
 }

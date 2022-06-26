@@ -332,7 +332,7 @@ class OSCMessageParser {
         args.add(value);
 
         index += codec.length(value);
-        // if (value is String) eat(byte: 0);
+        if (value is String) eat(byte: 0);
         align();
       }
     }
